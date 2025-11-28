@@ -5,7 +5,7 @@ A comprehensive machine learning-powered platform for identifying at-risk studen
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/blswXyO9)
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=20146156&assignment_repo_type=AssignmentRepo)
 
-## 🎯 Project Overview
+## Project Overview
 
 This platform uses a hybrid assessment approach combining rule-based heuristics with Random Forest machine learning models to predict student dropout risk, classify priority levels, and identify specific intervention needs. The system processes unstructured case descriptions from social worker interviews and generates actionable recommendations for early intervention.
 
@@ -82,7 +82,7 @@ Assessment History View
 - **Average F1-Score**: 95.6%
 - **Best Performing**: School Fees (100% F1), Housing (98.9% F1), Economic (98.4% F1)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.13+
@@ -150,7 +150,7 @@ ML-Dropout-Risk-Assessment/
 └── requirements.txt               # Python dependencies
 ```
 
-## 🔄 System Workflow
+## System Workflow
 
 1. **Case Input**: Social worker enters unstructured case description
 2. **Feature Extraction**: System extracts 82 features (demographics, flags, embeddings)
@@ -161,14 +161,14 @@ ML-Dropout-Risk-Assessment/
 5. **Recommendation Generation**: Personalized interventions mapped to detected needs
 6. **Case Management**: Track interventions, update status, reassess cases
 
-## 👥 User Roles
+## User Roles
 
 - **Admin**: Full system access, user management, analytics
 - **Social Worker**: Create cases, manage interventions, view analytics
 - **Teacher**: Submit case requests, view own requests
 - **Viewer**: Read-only access to reports and analytics
 
-## 📈 Dataset
+## Dataset
 
 - **Original Cases**: 265 anonymized student case descriptions
 - **Augmented Cases**: 1,060 synthetic variants (4x augmentation)
@@ -176,7 +176,7 @@ ML-Dropout-Risk-Assessment/
 - **Features**: 82 dimensions (6 structured + 12 flags + 64 PCA-reduced embeddings)
 - **Labels**: Priority (3-class), Dropout Risk (binary), Needs (7 binary)
 
-## 🧪 Testing
+## Testing
 
 The system has been tested across multiple domains:
 - **Functional Testing**: 20 test cases (100% pass rate)
@@ -186,7 +186,7 @@ The system has been tested across multiple domains:
 - **UI Testing**: 10 test cases (navigation, forms, responsiveness)
 - **Performance Testing**: 5 test cases (sub-5-second analysis, sub-3-second page loads)
 
-## 📚 Documentation
+## Documentation
 
 - `PROJECT_DOCUMENTATION.md`: Comprehensive system documentation
 - `POSTGRESQL_SETUP.md`: Database setup guide
@@ -194,22 +194,22 @@ The system has been tested across multiple domains:
 - `TECHNICAL_ML_ANALYSIS.md`: Detailed ML model analysis
 - `ACTUAL_EXECUTION_FLOW.md`: System execution flow documentation
 
-## 🤝 Contributing
+## Contributing
 
 This is a final year project. For questions or collaboration, please contact the repository owner.
 
-## 📄 License
+## License
 
 This project is part of a final year Computer Science degree program at Strathmore University, Nairobi, Kenya.
 
-## 👤 Author
+## Author
 
 **Ndung'u Victor Kahindo**  
 Student ID: 150668  
 ICS 4B  
 Strathmore University
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Mr. Byron Mugesiah (Social Worker, St. Elizabeth Primary School, Mukuru)
 - St. Elizabeth Primary School, Mukuru
