@@ -47,19 +47,23 @@ This platform uses a hybrid assessment approach combining rule-based heuristics 
 ## 📊 Model Performance
 
 ### Priority Classification
-- **Overall Accuracy**: 86.0%
-- **High Priority Recall**: 50.0% (critical for catching at-risk students)
-- **High Priority F1-Score**: 56.3%
+- **Test Accuracy**: 90.2%
+- **High Priority Recall**: 65.4% (critical for catching at-risk students)
+- **High Priority Precision**: 81.0%
+- **High Priority F1-Score**: 72.3%
 
 ### Dropout Risk Prediction
-- **Accuracy**: 96.2%
-- **AUC-ROC**: 97.4% (excellent discrimination)
-- **Precision**: 60.0%
-- **Recall**: 90.5%
+- **Test Accuracy**: 97.7%
+- **Test AUC-ROC**: 96.7% (excellent discrimination)
+- **Test Precision**: 82.4%
+- **Test Recall**: 82.4%
+- **Test F1-Score**: 82.4%
 
 ### Needs Assessment (Average across 7 needs)
-- **Average F1-Score**: 83.3%
-- **Best Performing**: School Fees (100% F1), Housing (98.9% F1), Economic (98.4% F1)
+- **Average Precision**: 100%
+- **Average Recall**: 89.3%
+- **Average F1-Score**: 93.8%
+- **Best Performing**: School Fees (100% F1), Abuse (100% F1), Elderly Caregiver (100% F1), Food (94.1% F1)
 
 ## 🚀 Quick Start
 
