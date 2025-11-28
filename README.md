@@ -63,7 +63,7 @@ This platform uses a hybrid assessment approach combining rule-based heuristics 
 - **Average Precision**: 100%
 - **Average Recall**: 89.3%
 - **Average F1-Score**: 93.8%
-- **Best Performing**: School Fees (100% F1), Abuse (100% F1), Elderly Caregiver (100% F1), Food (94.1% F1)
+- **Best Performing**: School Fees (100% F1), Abuse (100% F1), Elderly Caregiver (100% F1), Food (94.1% F1), Economic (90.9% F1), Housing (90.9% F1), Health (90.9% F1)
 
 ## 🚀 Quick Start
 
