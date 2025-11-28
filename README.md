@@ -14,9 +14,9 @@ This platform uses a hybrid assessment approach combining rule-based heuristics 
 - **Hybrid Risk Assessment**: Combines heuristics (primary) and ML (secondary) for reliable predictions
 - **Automated Feature Extraction**: Extracts 82 features from unstructured text (demographics, flags, embeddings)
 - **Multi-Task Prediction**: 
-  - Priority classification (High/Medium/Low) - 86% accuracy
-  - Dropout risk prediction - 96.2% accuracy, 97.4% AUC-ROC
-  - Needs assessment (7 categories) - 83.3% average F1-score
+  - Priority classification (High/Medium/Low) - 90.2% test accuracy
+  - Dropout risk prediction - 97.7% test accuracy, 96.7% AUC-ROC
+  - Needs assessment (7 categories) - 93.8% average F1-score
 - **Case Management Workflow**: Complete lifecycle from case creation to intervention tracking
 - **Role-Based Access Control**: Four user roles (Admin, Social Worker, Teacher, Viewer) with granular permissions
 - **Personalized Recommendations**: AI-generated intervention suggestions based on detected needs
