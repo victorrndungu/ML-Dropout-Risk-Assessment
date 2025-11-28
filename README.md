@@ -9,20 +9,41 @@ A comprehensive machine learning-powered platform for identifying at-risk studen
 
 This platform uses a hybrid assessment approach combining rule-based heuristics with Random Forest machine learning models to predict student dropout risk, classify priority levels, and identify specific intervention needs. The system processes unstructured case descriptions from social worker interviews and generates actionable recommendations for early intervention.
 
-## ✨ Key Features
+## Key Features
 
 - **Hybrid Risk Assessment**: Combines heuristics (primary) and ML (secondary) for reliable predictions
 - **Automated Feature Extraction**: Extracts 82 features from unstructured text (demographics, flags, embeddings)
 - **Multi-Task Prediction**: 
-  - Priority classification (High/Medium/Low) - 86% accuracy
-  - Dropout risk prediction - 96.2% accuracy, 97.4% AUC-ROC
-  - Needs assessment (7 categories) - 83.3% average F1-score
+  - Priority classification (High/Medium/Low) - 90.2% accuracy
+  - Dropout risk prediction - 97.7% accuracy, 97.4% AUC-ROC
+  - Needs assessment (7 categories) - 95.6% average F1-score
 - **Case Management Workflow**: Complete lifecycle from case creation to intervention tracking
 - **Role-Based Access Control**: Four user roles (Admin, Social Worker, Teacher, Viewer) with granular permissions
 - **Personalized Recommendations**: AI-generated intervention suggestions based on detected needs
 - **Real-Time Analytics**: Dashboard with risk distribution, case statistics, and performance metrics
 
-## 🛠️ Technology Stack
+## Screenshots of the System
+1. Homepage
+<img width="1466" height="710" alt="image" src="https://github.com/user-attachments/assets/f2cecfde-a31f-4598-9229-5a0b1b6dcea1" />
+2. Create Case Page
+<img width="1466" height="710" alt="image" src="https://github.com/user-attachments/assets/3b2a8c61-8161-4c82-a5fa-024186e16df8" />
+After Loading Case.
+<img width="1466" height="795" alt="image" src="https://github.com/user-attachments/assets/012be030-dcfb-4902-b4e7-52e69c193172" />
+3. Case Management
+<img width="1466" height="795" alt="image" src="https://github.com/user-attachments/assets/2d40e682-abc1-43d2-96e2-b090a56a2111" />
+Case Profile Menu 
+<img width="1466" height="795" alt="image" src="https://github.com/user-attachments/assets/13757e81-7f48-4c89-b0f9-71b8f3f237d3" />
+Post Reassessment
+<img width="1313" height="764" alt="image" src="https://github.com/user-attachments/assets/7531d041-9f89-4166-a1fd-e44219be903f" />
+Assessment History View
+<img width="1313" height="764" alt="image" src="https://github.com/user-attachments/assets/f3b6fe33-00b3-4d00-a49c-66ad4299f0f0" />
+4. Overview
+<img width="1164" height="764" alt="image" src="https://github.com/user-attachments/assets/7ebcad7c-a5bd-4caf-9ae8-7c777983806c" />
+<img width="1305" height="469" alt="image" src="https://github.com/user-attachments/assets/1440c6e3-2cd3-4bed-af23-631acb3ef918" />
+<img width="1305" height="584" alt="image" src="https://github.com/user-attachments/assets/d20aaf66-b1c6-4e12-8fe6-2316fc56c511" />
+<img width="1305" height="266" alt="image" src="https://github.com/user-attachments/assets/5b1111d5-8817-4a01-946b-2cb8216cf96f" />
+
+## Technology Stack
 
 ### Frontend
 - **Streamlit** (v1.28+): Interactive web dashboard
@@ -48,17 +69,17 @@ This platform uses a hybrid assessment approach combining rule-based heuristics 
 
 ### Priority Classification
 - **Overall Accuracy**: 86.0%
-- **High Priority Recall**: 50.0% (critical for catching at-risk students)
-- **High Priority F1-Score**: 56.3%
+- **High Priority Recall**: 84.0% (critical for catching at-risk students)
+- **High Priority F1-Score**: 86.3%
 
 ### Dropout Risk Prediction
 - **Accuracy**: 96.2%
 - **AUC-ROC**: 97.4% (excellent discrimination)
-- **Precision**: 60.0%
-- **Recall**: 90.5%
+- **Precision**: 82.4.0%
+- **Recall**: 82.4%
 
 ### Needs Assessment (Average across 7 needs)
-- **Average F1-Score**: 83.3%
+- **Average F1-Score**: 95.6%
 - **Best Performing**: School Fees (100% F1), Housing (98.9% F1), Economic (98.4% F1)
 
 ## 🚀 Quick Start
@@ -190,7 +211,6 @@ Strathmore University
 
 ## 🙏 Acknowledgments
 
-- Prof. Vincent Omwenga (Supervisor)
 - Mr. Byron Mugesiah (Social Worker, St. Elizabeth Primary School, Mukuru)
 - St. Elizabeth Primary School, Mukuru
 - Strathmore University
