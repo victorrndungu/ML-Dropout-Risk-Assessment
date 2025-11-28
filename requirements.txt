@@ -23,3 +23,6 @@ python-dotenv>=1.0.0
 # xgboost>=1.7.0
 # lightgbm>=4.0.0
 # shap>=0.42.0
+
+# Class balancing for imbalanced datasets
+imbalanced-learn>=0.11.0
