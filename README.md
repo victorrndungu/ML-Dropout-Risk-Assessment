@@ -18,8 +18,8 @@ This platform uses a hybrid assessment approach combining rule-based heuristics 
   - Dropout risk prediction - 97.7% test accuracy, 96.7% AUC-ROC
   - Needs assessment (7 categories) - 95.6% average F1-score
 - **Case Management Workflow**: Complete lifecycle from case creation to intervention tracking
-- **Role-Based Access Control**: Four user roles (Admin, Social Worker, Teacher, Viewer) with granular permissions
-- **Personalized Recommendations**: AI-generated intervention suggestions based on detected needs
+- **Role-Based Access Control**: Three user roles (Admin, Social Worker, Teacher) with granular permissions
+- **Recommendations**: Generated intervention suggestions based on detected needs
 - **Real-Time Analytics**: Dashboard with risk distribution, case statistics, and performance metrics
 
 ## Screenshots of the System
@@ -84,7 +84,6 @@ Assessment History View
 - **Average Precision**: 100%
 - **Average Recall**: 89.3%
 - **Average F1-Score**: 93.8%
-- **Best Performing**: School Fees (100% F1), Abuse (100% F1), Elderly Caregiver (100% F1), Food (94.1% F1), Economic (90.9% F1), Housing (90.9% F1), Health (90.9% F1)
 
 ## Quick Start
 
