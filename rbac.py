@@ -15,6 +15,7 @@ class Permission:
     VIEW_RISK_ASSESSMENT = "view_risk_assessment"
     VIEW_NEEDS_OVERVIEW = "view_needs_overview"
     VIEW_METRICS = "view_metrics"
+    VIEW_ANALYTICS_OVERVIEW = "view_analytics_overview"
     
     # Data management
     UPLOAD_CASES = "upload_cases"
@@ -38,6 +39,7 @@ class Permission:
     
     # System administration
     MANAGE_USERS = "manage_users"
+    APPROVE_USERS = "approve_users"
     VIEW_AUDIT_LOGS = "view_audit_logs"
     CONFIGURE_SYSTEM = "configure_system"
     
@@ -67,6 +69,7 @@ ROLE_PERMISSIONS = {
         Permission.UPDATE_INTERVENTIONS,
         Permission.BATCH_PROCESSING,
         Permission.MANAGE_USERS,
+        Permission.APPROVE_USERS,
         Permission.VIEW_AUDIT_LOGS,
         Permission.CONFIGURE_SYSTEM,
         Permission.QUERY_DATABASE,
@@ -94,16 +97,9 @@ ROLE_PERMISSIONS = {
         Permission.QUERY_DATABASE,
     ],
     'teacher': [
-        # Teachers have viewing and limited case management
+        # Teachers have limited access: submit and view ONLY their requests/cases
         Permission.VIEW_DASHBOARD,
-        Permission.VIEW_PROFILES,
-        Permission.VIEW_RISK_ASSESSMENT,
-        Permission.VIEW_NEEDS_OVERVIEW,
-        Permission.VIEW_METRICS,
-        Permission.VIEW_CASES,
-        Permission.CREATE_CASES,
-        Permission.VIEW_RECOMMENDATIONS,
-        Permission.EXPORT_DATA,
+        Permission.VIEW_CASES,  # to access Case Management page (internally limited)
     ],
     'viewer': [
         # Viewers have read-only access
@@ -126,6 +122,8 @@ PAGE_PERMISSIONS = {
     'Model Metrics': [Permission.VIEW_METRICS],
     'Case Management': [Permission.VIEW_CASES],
     'Batch Processing': [Permission.BATCH_PROCESSING],
+    'Admin Approval': [Permission.APPROVE_USERS],
+    'Analytics & Overview': [Permission.VIEW_ANALYTICS_OVERVIEW, Permission.VIEW_METRICS, Permission.VIEW_NEEDS_OVERVIEW],
 }
 
 def get_user_permissions(role: str) -> List[str]:
@@ -191,4 +189,5 @@ def show_permission_denied(required_permission: str = None):
     
     if required_permission:
         st.info(f"Required permission: {required_permission}")
+
 

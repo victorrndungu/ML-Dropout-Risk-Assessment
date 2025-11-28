@@ -2,8 +2,8 @@
 """
 supabase_auth.py
 
-Supabase authentication integration with two-factor authentication (OTP via email)
-and Google OAuth sign-in. Syncs with local PostgreSQL for role management.
+Supabase authentication integration with two-factor authentication (OTP via email).
+Syncs with local PostgreSQL for role management.
 """
 import os
 import json
@@ -50,7 +50,8 @@ class SupabaseAuth:
         email: str, 
         password: str, 
         full_name: str,
-        role: str = "viewer"
+        role: str = "viewer",
+        admin_token: Optional[str] = None
     ) -> Tuple[bool, str, Optional[Dict]]:
         """
         Sign up new user with email and password.
@@ -59,6 +60,22 @@ class SupabaseAuth:
         Returns: (success, message, user_data)
         """
         try:
+            # Import approval system
+            from admin_approval_system import get_approval_system
+            
+            # Validate admin token if admin role is requested
+            if role == "admin":
+                if not admin_token:
+                    return False, "Admin token is required for admin registration", None
+                
+                # Validate admin token against the token file
+                if not self._validate_admin_token(admin_token):
+                    return False, "Invalid admin token", None
+                
+                # Check if admin already exists
+                if self._admin_exists():
+                    return False, "Admin account already exists", None
+            
             # Sign up with Supabase
             app_url = os.getenv("APP_URL", "http://localhost:8504")
             response = self.client.auth.sign_up({
@@ -74,7 +91,25 @@ class SupabaseAuth:
             })
             
             if response.user:
-                return True, "Signup successful! Please check your email for verification link.", {
+                # Add user to approval system (except for admin with valid token)
+                approval_system = get_approval_system()
+                
+                if role == "admin" and admin_token and self._validate_admin_token(admin_token):
+                    # Admin with valid token - auto-approve
+                    success, message = approval_system.add_pending_user(email, full_name, role, admin_token)
+                    if success:
+                        # Auto-approve admin
+                        approval_system.approve_user(
+                            approval_system.get_pending_users()[-1]['id'], 
+                            'system', 
+                            'Admin auto-approved with valid token'
+                        )
+                else:
+                    # Regular user or admin without valid token - add to pending
+                    success, message = approval_system.add_pending_user(email, full_name, role, admin_token)
+                    print(f"🔍 Adding user to pending: {email}, success: {success}, message: {message}")
+                
+                return True, "Signup successful! Please check your email for verification link. Your account is pending admin approval.", {
                     "id": response.user.id,
                     "email": response.user.email,
                     "full_name": full_name,
@@ -107,6 +142,9 @@ class SupabaseAuth:
                 if not response.user.email_confirmed_at:
                     return False, "Please verify your email first. Check your inbox for verification link.", None
                 
+                # Note: Approval status check is now handled in the main app
+                # This allows users to login but they'll see the pending approval page
+                
                 # Get user metadata
                 user_metadata = response.user.user_metadata or {}
                 
@@ -131,28 +169,6 @@ class SupabaseAuth:
                 return False, "Invalid email or password.", None
             return False, f"Login error: {error_msg}", None
     
-    def sign_in_with_google(self) -> Tuple[bool, str]:
-        """
-        Initiate Google OAuth sign-in.
-        Returns the OAuth URL to redirect to.
-        
-        Returns: (success, oauth_url or error_message)
-        """
-        try:
-            response = self.client.auth.sign_in_with_oauth({
-                "provider": "google",
-                "options": {
-                    "redirect_to": f"{os.getenv('APP_URL', 'http://localhost:8504')}/auth/callback"
-                }
-            })
-            
-            if response.url:
-                return True, response.url
-            else:
-                return False, "Failed to initialize Google sign-in"
-                
-        except Exception as e:
-            return False, f"Google sign-in error: {str(e)}"
     
     def sign_out(self) -> Tuple[bool, str]:
         """Sign out current user."""
@@ -165,6 +181,7 @@ class SupabaseAuth:
     def get_current_user(self) -> Optional[Dict]:
         """Get currently authenticated user."""
         try:
+            # Try to get the user first
             response = self.client.auth.get_user()
             if response and response.user:
                 user_metadata = response.user.user_metadata or {}
@@ -176,7 +193,8 @@ class SupabaseAuth:
                     "email_verified": response.user.email_confirmed_at is not None
                 }
             return None
-        except Exception:
+        except Exception as e:
+            print(f"🔍 Auth error in get_current_user: {e}")
             return None
     
     def resend_verification_email(self, email: str) -> Tuple[bool, str]:
@@ -198,12 +216,51 @@ class SupabaseAuth:
         """Send password reset email."""
         try:
             app_url = os.getenv("APP_URL", "http://localhost:8504")
+            
+            # Supabase reset_password_email returns None on success, raises exception on error
             self.client.auth.reset_password_email(email, {
-                "redirect_to": f"{app_url}/"
+                "redirect_to": app_url  # Just redirect to base URL
             })
+            
+            # If we get here without an exception, it was successful
             return True, "Password reset email sent! Check your inbox."
+                
         except Exception as e:
-            return False, f"Failed to send reset email: {str(e)}"
+            error_msg = str(e)
+            print(f"🔍 Password reset error: {error_msg}")  # Debug log
+            
+            if "not found" in error_msg.lower() or "invalid" in error_msg.lower():
+                return False, "Email address not found. Please check your email or sign up for a new account."
+            elif "rate limit" in error_msg.lower() or "security purposes" in error_msg.lower() or "after" in error_msg.lower():
+                return False, "Too many reset attempts. Please wait a few minutes before trying again."
+            elif "disabled" in error_msg.lower():
+                return False, "Password reset is currently disabled. Please contact your administrator."
+            else:
+                return False, f"Failed to send reset email: {error_msg}"
+    
+    def update_password(self, new_password: str) -> Tuple[bool, str]:
+        """Update user password after reset."""
+        try:
+            # Check if user is authenticated
+            current_user = self.get_current_user()
+            if not current_user:
+                return False, "You must be logged in to update your password. Please log in first."
+            
+            response = self.client.auth.update_user({
+                "password": new_password
+            })
+            
+            if response.user:
+                return True, "Password updated successfully! You can now log in with your new password."
+            else:
+                return False, "Failed to update password. Please try again."
+                
+        except Exception as e:
+            error_msg = str(e)
+            if "session" in error_msg.lower() or "auth" in error_msg.lower():
+                return False, "Authentication session expired. Please request a new password reset link."
+            else:
+                return False, f"Failed to update password: {error_msg}"
     
     def verify_otp(self, email: str, otp_code: str) -> Tuple[bool, str]:
         """
@@ -300,6 +357,38 @@ class SupabaseAuth:
                 
         except Exception as e:
             print(f"Warning: Failed to sync user to local DB: {e}")
+    
+    def _validate_admin_token(self, token: str) -> bool:
+        """Validate admin token against the token file."""
+        try:
+            token_file = ROOT / "admin_token.txt"
+            if not token_file.exists():
+                return False
+            
+            with open(token_file, 'r') as f:
+                content = f.read()
+                if "Admin Registration Token:" in content:
+                    token_line = [line for line in content.split('\n') if 'Admin Registration Token:' in line][0]
+                    stored_token = token_line.split(': ')[1].strip()
+                    return token == stored_token
+            
+            return False
+        except Exception:
+            return False
+    
+    def _admin_exists(self) -> bool:
+        """Check if admin account already exists in local database."""
+        try:
+            import psycopg2
+            from psycopg2.extras import RealDictCursor
+            
+            conn = psycopg2.connect(**self.db_config)
+            with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                cur.execute("SELECT COUNT(*) as count FROM users WHERE role = 'admin'")
+                result = cur.fetchone()
+                return result['count'] > 0
+        except Exception:
+            return False
 
 # Global Supabase auth instance
 _supabase_auth = None
