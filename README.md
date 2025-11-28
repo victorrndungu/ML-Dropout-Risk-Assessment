@@ -14,8 +14,8 @@ This platform uses a hybrid assessment approach combining rule-based heuristics 
 - **Hybrid Risk Assessment**: Combines heuristics (primary) and ML (secondary) for reliable predictions
 - **Automated Feature Extraction**: Extracts 82 features from unstructured text (demographics, flags, embeddings)
 - **Multi-Task Prediction**: 
-  - Priority classification (High/Medium/Low) - 90.2% accuracy
-  - Dropout risk prediction - 97.7% accuracy, 97.4% AUC-ROC
+  - Priority classification (High/Medium/Low) - 90.2% test accuracy
+  - Dropout risk prediction - 97.7% test accuracy, 96.7% AUC-ROC
   - Needs assessment (7 categories) - 95.6% average F1-score
 - **Case Management Workflow**: Complete lifecycle from case creation to intervention tracking
 - **Role-Based Access Control**: Four user roles (Admin, Social Worker, Teacher, Viewer) with granular permissions
@@ -68,19 +68,23 @@ Assessment History View
 ## 📊 Model Performance
 
 ### Priority Classification
-- **Overall Accuracy**: 86.0%
-- **High Priority Recall**: 84.0% (critical for catching at-risk students)
-- **High Priority F1-Score**: 86.3%
+- **Test Accuracy**: 90.2%
+- **High Priority Recall**: 65.4% (critical for catching at-risk students)
+- **High Priority Precision**: 81.0%
+- **High Priority F1-Score**: 72.3%
 
 ### Dropout Risk Prediction
-- **Accuracy**: 96.2%
-- **AUC-ROC**: 97.4% (excellent discrimination)
-- **Precision**: 82.4.0%
-- **Recall**: 82.4%
+- **Test Accuracy**: 97.7%
+- **Test AUC-ROC**: 96.7% (excellent discrimination)
+- **Test Precision**: 82.4%
+- **Test Recall**: 82.4%
+- **Test F1-Score**: 82.4%
 
 ### Needs Assessment (Average across 7 needs)
-- **Average F1-Score**: 95.6%
-- **Best Performing**: School Fees (100% F1), Housing (98.9% F1), Economic (98.4% F1)
+- **Average Precision**: 100%
+- **Average Recall**: 89.3%
+- **Average F1-Score**: 93.8%
+- **Best Performing**: School Fees (100% F1), Abuse (100% F1), Elderly Caregiver (100% F1), Food (94.1% F1), Economic (90.9% F1), Housing (90.9% F1), Health (90.9% F1)
 
 ## Quick Start
 
