@@ -169,7 +169,6 @@ ML-Dropout-Risk-Assessment/
 - **Admin**: Full system access, user management, analytics
 - **Social Worker**: Create cases, manage interventions, view analytics
 - **Teacher**: Submit case requests, view own requests
-- **Viewer**: Read-only access to reports and analytics
 
 ## Dataset
 
