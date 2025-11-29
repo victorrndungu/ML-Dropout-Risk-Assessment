@@ -1,0 +1,590 @@
+{
+  "best_model": "ensemble_voting",
+  "validation_results": {
+    "enhanced_random_forest": {
+      "needs": {
+        "need_food": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "f1": 0.7692307692307693
+        },
+        "need_school_fees": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "need_housing": {
+          "precision": 0.9827586206896551,
+          "recall": 1.0,
+          "f1": 0.991304347826087
+        },
+        "need_economic": {
+          "precision": 1.0,
+          "recall": 0.9880952380952381,
+          "f1": 0.9940119760479041
+        },
+        "need_family_support": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "need_health": {
+          "precision": 1.0,
+          "recall": 0.45454545454545453,
+          "f1": 0.625
+        },
+        "need_counseling": {
+          "precision": 0.9333333333333333,
+          "recall": 0.7368421052631579,
+          "f1": 0.8235294117647058
+        }
+      },
+      "priority": {
+        "accuracy": 0.9207547169811321,
+        "high_recall": 0.9130434782608695,
+        "high_precision": 0.9333333333333333,
+        "high_f1": 0.9230769230769231,
+        "confusion_matrix": [
+          [
+            42,
+            0,
+            4
+          ],
+          [
+            0,
+            55,
+            5
+          ],
+          [
+            3,
+            9,
+            147
+          ]
+        ],
+        "classification_report": {
+          "high": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9130434782608695,
+            "f1-score": 0.9230769230769231,
+            "support": 46.0
+          },
+          "low": {
+            "precision": 0.859375,
+            "recall": 0.9166666666666666,
+            "f1-score": 0.8870967741935484,
+            "support": 60.0
+          },
+          "medium": {
+            "precision": 0.9423076923076923,
+            "recall": 0.9245283018867925,
+            "f1-score": 0.9333333333333333,
+            "support": 159.0
+          },
+          "accuracy": 0.9207547169811321,
+          "macro avg": {
+            "precision": 0.9116720085470086,
+            "recall": 0.9180794822714429,
+            "f1-score": 0.9145023435346017,
+            "support": 265.0
+          },
+          "weighted avg": {
+            "precision": 0.9219726656990808,
+            "recall": 0.9207547169811321,
+            "f1-score": 0.9210843204269864,
+            "support": 265.0
+          }
+        }
+      },
+      "dropout": {
+        "accuracy": 0.9811320754716981,
+        "precision": 0.9743589743589743,
+        "recall": 0.9047619047619048,
+        "f1": 0.9382716049382716,
+        "auc": 0.9951953875720693,
+        "confusion_matrix": [
+          [
+            222,
+            1
+          ],
+          [
+            4,
+            38
+          ]
+        ]
+      }
+    },
+    "gradient_boosting": {
+      "needs": {
+        "need_food": {
+          "precision": 1.0,
+          "recall": 0.8125,
+          "f1": 0.896551724137931
+        },
+        "need_school_fees": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "need_housing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "need_economic": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "need_family_support": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "need_health": {
+          "precision": 0.875,
+          "recall": 0.6363636363636364,
+          "f1": 0.7368421052631579
+        },
+        "need_counseling": {
+          "precision": 1.0,
+          "recall": 0.8421052631578947,
+          "f1": 0.9142857142857143
+        }
+      },
+      "priority": {
+        "accuracy": 0.9358490566037736,
+        "high_recall": 0.9347826086956522,
+        "high_precision": 0.9347826086956522,
+        "high_f1": 0.9347826086956522,
+        "confusion_matrix": [
+          [
+            43,
+            0,
+            3
+          ],
+          [
+            0,
+            58,
+            2
+          ],
+          [
+            3,
+            9,
+            147
+          ]
+        ],
+        "classification_report": {
+          "high": {
+            "precision": 0.9347826086956522,
+            "recall": 0.9347826086956522,
+            "f1-score": 0.9347826086956522,
+            "support": 46.0
+          },
+          "low": {
+            "precision": 0.8656716417910447,
+            "recall": 0.9666666666666667,
+            "f1-score": 0.9133858267716536,
+            "support": 60.0
+          },
+          "medium": {
+            "precision": 0.9671052631578947,
+            "recall": 0.9245283018867925,
+            "f1-score": 0.9453376205787781,
+            "support": 159.0
+          },
+          "accuracy": 0.9358490566037736,
+          "macro avg": {
+            "precision": 0.9225198378815306,
+            "recall": 0.9419925257497038,
+            "f1-score": 0.9311686853486947,
+            "support": 265.0
+          },
+          "weighted avg": {
+            "precision": 0.9385284352813884,
+            "recall": 0.9358490566037736,
+            "f1-score": 0.9362710614276413,
+            "support": 265.0
+          }
+        }
+      },
+      "dropout": {
+        "accuracy": 0.9886792452830189,
+        "precision": 0.975609756097561,
+        "recall": 0.9523809523809523,
+        "f1": 0.963855421686747,
+        "auc": 0.9990390775144138,
+        "confusion_matrix": [
+          [
+            222,
+            1
+          ],
+          [
+            2,
+            40
+          ]
+        ]
+      }
+    },
+    "ensemble_voting": {
+      "needs": {
+        "need_food": {
+          "precision": 1.0,
+          "recall": 0.8125,
+          "f1": 0.896551724137931
+        },
+        "need_school_fees": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "need_housing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "need_economic": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "need_family_support": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "need_health": {
+          "precision": 1.0,
+          "recall": 0.8181818181818182,
+          "f1": 0.9
+        },
+        "need_counseling": {
+          "precision": 1.0,
+          "recall": 0.7894736842105263,
+          "f1": 0.8823529411764706
+        }
+      },
+      "priority": {
+        "accuracy": 0.939622641509434,
+        "high_recall": 0.9130434782608695,
+        "high_precision": 0.9545454545454546,
+        "high_f1": 0.9333333333333333,
+        "confusion_matrix": [
+          [
+            42,
+            0,
+            4
+          ],
+          [
+            0,
+            59,
+            1
+          ],
+          [
+            2,
+            9,
+            148
+          ]
+        ],
+        "classification_report": {
+          "high": {
+            "precision": 0.9545454545454546,
+            "recall": 0.9130434782608695,
+            "f1-score": 0.9333333333333333,
+            "support": 46.0
+          },
+          "low": {
+            "precision": 0.8676470588235294,
+            "recall": 0.9833333333333333,
+            "f1-score": 0.921875,
+            "support": 60.0
+          },
+          "medium": {
+            "precision": 0.9673202614379085,
+            "recall": 0.9308176100628931,
+            "f1-score": 0.9487179487179487,
+            "support": 159.0
+          },
+          "accuracy": 0.939622641509434,
+          "macro avg": {
+            "precision": 0.9298375916022975,
+            "recall": 0.9423981405523653,
+            "f1-score": 0.934642094017094,
+            "support": 265.0
+          },
+          "weighted avg": {
+            "precision": 0.9425352302155854,
+            "recall": 0.939622641509434,
+            "f1-score": 0.9399697629414611,
+            "support": 265.0
+          }
+        }
+      },
+      "dropout": {
+        "accuracy": 0.9924528301886792,
+        "precision": 1.0,
+        "recall": 0.9523809523809523,
+        "f1": 0.975609756097561,
+        "auc": 0.9993593850096093,
+        "confusion_matrix": [
+          [
+            223,
+            0
+          ],
+          [
+            2,
+            40
+          ]
+        ]
+      }
+    }
+  },
+  "test_results": {
+    "needs": {
+      "need_food": {
+        "precision": 1.0,
+        "recall": 0.8055555555555556,
+        "f1": 0.8923076923076924
+      },
+      "need_school_fees": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "need_housing": {
+        "precision": 1.0,
+        "recall": 0.995850622406639,
+        "f1": 0.997920997920998
+      },
+      "need_economic": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "need_family_support": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "need_health": {
+        "precision": 0.9333333333333333,
+        "recall": 0.9333333333333333,
+        "f1": 0.9333333333333333
+      },
+      "need_counseling": {
+        "precision": 1.0,
+        "recall": 0.85,
+        "f1": 0.918918918918919
+      }
+    },
+    "priority": {
+      "accuracy": 0.9207547169811321,
+      "high_recall": 0.8444444444444444,
+      "high_precision": 0.95,
+      "high_f1": 0.8941176470588236,
+      "confusion_matrix": [
+        [
+          38,
+          0,
+          7
+        ],
+        [
+          0,
+          55,
+          5
+        ],
+        [
+          2,
+          7,
+          151
+        ]
+      ],
+      "classification_report": {
+        "high": {
+          "precision": 0.95,
+          "recall": 0.8444444444444444,
+          "f1-score": 0.8941176470588236,
+          "support": 45.0
+        },
+        "low": {
+          "precision": 0.8870967741935484,
+          "recall": 0.9166666666666666,
+          "f1-score": 0.9016393442622951,
+          "support": 60.0
+        },
+        "medium": {
+          "precision": 0.9263803680981595,
+          "recall": 0.94375,
+          "f1-score": 0.934984520123839,
+          "support": 160.0
+        },
+        "accuracy": 0.9207547169811321,
+        "macro avg": {
+          "precision": 0.9211590474305692,
+          "recall": 0.9016203703703703,
+          "f1-score": 0.9102471704816525,
+          "support": 265.0
+        },
+        "weighted avg": {
+          "precision": 0.9214968503672394,
+          "recall": 0.9207547169811321,
+          "f1-score": 0.9204950112950906,
+          "support": 265.0
+        }
+      }
+    },
+    "dropout": {
+      "accuracy": 0.9924528301886792,
+      "precision": 0.9714285714285714,
+      "recall": 0.9714285714285714,
+      "f1": 0.9714285714285714,
+      "auc": 0.9983850931677019,
+      "confusion_matrix": [
+        [
+          229,
+          1
+        ],
+        [
+          1,
+          34
+        ]
+      ]
+    }
+  },
+  "feature_names": [
+    "age",
+    "last_exam_score",
+    "meals_per_day",
+    "siblings_count",
+    "sentence_count",
+    "text_len",
+    "iron_sheets_flag",
+    "single_room_flag",
+    "shared_bed_flag",
+    "no_electric_flag",
+    "rent_arrears_flag",
+    "hunger_flag",
+    "father_absent_flag",
+    "mother_hawker_flag",
+    "landlord_lock_flag",
+    "no_school_fees_flag",
+    "works_unstable_flag",
+    "single_parent_flag",
+    "economic_stress_combo",
+    "family_risk_combo",
+    "academic_economic_risk",
+    "young_malnourished",
+    "emb_pca_0",
+    "emb_pca_1",
+    "emb_pca_2",
+    "emb_pca_3",
+    "emb_pca_4",
+    "emb_pca_5",
+    "emb_pca_6",
+    "emb_pca_7",
+    "emb_pca_8",
+    "emb_pca_9",
+    "emb_pca_10",
+    "emb_pca_11",
+    "emb_pca_12",
+    "emb_pca_13",
+    "emb_pca_14",
+    "emb_pca_15",
+    "emb_pca_16",
+    "emb_pca_17",
+    "emb_pca_18",
+    "emb_pca_19",
+    "emb_pca_20",
+    "emb_pca_21",
+    "emb_pca_22",
+    "emb_pca_23",
+    "emb_pca_24",
+    "emb_pca_25",
+    "emb_pca_26",
+    "emb_pca_27",
+    "emb_pca_28",
+    "emb_pca_29",
+    "emb_pca_30",
+    "emb_pca_31",
+    "emb_pca_32",
+    "emb_pca_33",
+    "emb_pca_34",
+    "emb_pca_35",
+    "emb_pca_36",
+    "emb_pca_37",
+    "emb_pca_38",
+    "emb_pca_39",
+    "emb_pca_40",
+    "emb_pca_41",
+    "emb_pca_42",
+    "emb_pca_43",
+    "emb_pca_44",
+    "emb_pca_45",
+    "emb_pca_46",
+    "emb_pca_47",
+    "emb_pca_48",
+    "emb_pca_49",
+    "emb_pca_50",
+    "emb_pca_51",
+    "emb_pca_52",
+    "emb_pca_53",
+    "emb_pca_54",
+    "emb_pca_55",
+    "emb_pca_56",
+    "emb_pca_57",
+    "emb_pca_58",
+    "emb_pca_59",
+    "emb_pca_60",
+    "emb_pca_61",
+    "emb_pca_62",
+    "emb_pca_63"
+  ],
+  "feature_importance": {
+    "priority": {
+      "top_features": [
+        "last_exam_score",
+        "iron_sheets_flag",
+        "economic_stress_combo",
+        "emb_pca_0",
+        "text_len",
+        "single_room_flag",
+        "rent_arrears_flag",
+        "meals_per_day",
+        "no_school_fees_flag",
+        "emb_pca_3"
+      ],
+      "importance_scores": [
+        0.16110189687896412,
+        0.11212147210330295,
+        0.08559318094184291,
+        0.05756494016623791,
+        0.03694618218342675,
+        0.036247775330400925,
+        0.029620487311440773,
+        0.027339782776859906,
+        0.023972605602206973,
+        0.023625473538508468
+      ]
+    }
+  },
+  "hyperparameters": {
+    "random_forest": {
+      "n_estimators": 352,
+      "max_depth": 15,
+      "min_samples_split": 7,
+      "min_samples_leaf": 1,
+      "max_features": "sqrt"
+    },
+    "gradient_boosting": {
+      "n_estimators": 144,
+      "learning_rate": 0.10829953266472796,
+      "max_depth": 10,
+      "min_samples_split": 15,
+      "min_samples_leaf": 10
+    }
+  },
+  "splits": {
+    "train_size": 795,
+    "val_size": 265,
+    "test_size": 265
+  }
+}
