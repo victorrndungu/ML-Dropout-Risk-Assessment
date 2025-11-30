@@ -39,8 +39,6 @@ Assessment History View
 <img width="1313" height="764" alt="image" src="https://github.com/user-attachments/assets/f3b6fe33-00b3-4d00-a49c-66ad4299f0f0" />
 4. Overview
 <img width="1164" height="764" alt="image" src="https://github.com/user-attachments/assets/7ebcad7c-a5bd-4caf-9ae8-7c777983806c" />
-<img width="1305" height="469" alt="image" src="https://github.com/user-attachments/assets/1440c6e3-2cd3-4bed-af23-631acb3ef918" />
-<img width="1305" height="584" alt="image" src="https://github.com/user-attachments/assets/d20aaf66-b1c6-4e12-8fe6-2316fc56c511" />
 
 
 ## Technology Stack
