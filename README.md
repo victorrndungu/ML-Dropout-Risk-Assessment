@@ -14,9 +14,9 @@ This platform uses a hybrid assessment approach combining rule-based heuristics 
 - **Hybrid Risk Assessment**: Combines heuristics (primary) and ML (secondary) for reliable predictions
 - **Automated Feature Extraction**: Extracts 82 features from unstructured text (demographics, flags, embeddings)
 - **Multi-Task Prediction**: 
-  - Priority classification (High/Medium/Low) - 90.2% test accuracy
-  - Dropout risk prediction - 97.7% test accuracy, 96.7% AUC-ROC
-  - Needs assessment (7 categories) - 95.6% average F1-score
+  - Priority classification (High/Medium/Low) - 92.1% test accuracy
+  - Dropout risk prediction - 99.2% test accuracy, 99.8% AUC-ROC
+  - Needs assessment (7 categories) - 96.3% average F1-score
 - **Case Management Workflow**: Complete lifecycle from case creation to intervention tracking
 - **Role-Based Access Control**: Three user roles (Admin, Social Worker, Teacher) with granular permissions
 - **Recommendations**: Generated intervention suggestions based on detected needs
@@ -68,22 +68,23 @@ Assessment History View
 ## 📊 Model Performance
 
 ### Priority Classification
-- **Test Accuracy**: 90.2%
-- **High Priority Recall**: 65.4% (critical for catching at-risk students)
-- **High Priority Precision**: 81.0%
-- **High Priority F1-Score**: 72.3%
+- **Test Accuracy**: 92.1%
+- **High Priority Recall**: 84.4% (critical for catching at-risk students)
+- **High Priority Precision**: 95.0%
+- **High Priority F1-Score**: 89.4%
 
 ### Dropout Risk Prediction
-- **Test Accuracy**: 97.7%
-- **Test AUC-ROC**: 96.7% (excellent discrimination)
-- **Test Precision**: 82.4%
-- **Test Recall**: 82.4%
-- **Test F1-Score**: 82.4%
+- **Test Accuracy**: 99.2%
+- **Test AUC-ROC**: 99.8% (excellent discrimination)
+- **Test Precision**: 97.1%
+- **Test Recall**: 97.1%
+- **Test F1-Score**: 97.1%
 
 ### Needs Assessment (Average across 7 needs)
 - **Average Precision**: 100%
 - **Average Recall**: 89.3%
-- **Average F1-Score**: 93.8%
+- **Average F1-Score**: 96.3%
+- **Best Performing**: School Fees (100% F1), Economic (100% F1), Family Support (100% F1), Housing (99.8% F1), Health (93.3% F1), Counseling (91.9% F1), Food (89.2% F1)
 
 ## Quick Start
 
@@ -148,6 +149,8 @@ ML-Dropout-Risk-Assessment/
 ├── database_setup.py              # Database schema and setup
 ├── rbac.py                       # Role-based access control
 ├── models/                        # Trained ML models
+├── models_enhanced/               # Ensemble voting models
+├── viz_outputs/                   # Performance visualizations and EDA charts
 ├── usable/                        # Original case data (265 files)
 ├── usable_aug/                    # Augmented case data (1,060 files)
 └── requirements.txt               # Python dependencies
